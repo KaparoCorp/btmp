@@ -1,0 +1,42 @@
+{% extends 'soko/base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Items for Exchange</h2>
+<form method="get">
+    <input type="text" name="q" placeholder="Search items..." value="{{ query }}">
+    <select name="category">
+        <option value="">All Categories</option>
+        {% for category in categories %}
+            <option value="{{ category.id }}"{% if category.id|stringformat:"s" == request.GET.category %} selected{% endif %}>{{ category.name }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Filter</button>
+</form>
+<ul>
+    {% for item in page_obj %}
+        <li>{{ item.title }} - {{ item.estimated_value }}</li>
+    {% empty %}
+        <li>No items found.</li>
+    {% endfor %}
+</ul>
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1&q={{ query }}&category={{ request.GET.category }}">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}&q={{ query }}&category={{ request.GET.category }}">previous</a>
+        {% endif %}
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}&q={{ query }}&category={{ request.GET.category }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}&q={{ query }}&category={{ request.GET.category }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+<div class="main_landing_page">
+    <!-- <img src='{% static "imgs/logo.png"%}' alt='logo Image for Barter Trade Market Place landing page'> -->
+
+</div>
+{% endblock %}
