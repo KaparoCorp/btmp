@@ -1,0 +1,13 @@
+asgiref==3.8.1
+backports.zoneinfo==0.2.1
+Django==4.2.17
+numpy==1.24.4
+pandas==2.0.3
+pillow==10.4.0
+python-dateutil==2.9.0.post0
+pytz==2024.1
+six @ file:///AppleInternal/BuildRoot/Library/Caches/com.apple.xbs/Sources/python3/python3-103/six-1.15.0-py2.py3-none-any.whl
+sqlparse==0.5.3
+typing_extensions==4.12.2
+tzdata==2024.1
+vboxapi==1.0
