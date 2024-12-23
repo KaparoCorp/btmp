@@ -10,7 +10,8 @@ class ProfileForm(forms.ModelForm):
 class ItemForm(forms.ModelForm):
     class Meta:
         model = Item
-        fields = ['title', 'description', 'photo', 'estimated_value', 'category']
+        fields = ['photo', 'estimated_value', 'suggestions' , 'category' , 'status' , 'description' , 'appraisal_amount']
+        
 
 class AppraisalForm(forms.ModelForm):
     class Meta:

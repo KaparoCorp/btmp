@@ -1,0 +1,40 @@
+.exchange_section{
+    display: flex;
+    justify-content: center;
+}
+
+.exchange_section p{
+    text-align: center;
+}
+#popupForm{
+    display: none;
+}
+.modal-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    color: whitesmoke;
+}
+
+#blurBody{
+    -webkit-filter: blur(8px);
+    -moz-filter: blur(8px);
+     -o-filter: blur(8px);
+    -ms-filter: blur(8px);
+    filter: blur(8px);
+}
+
+button img {
+    height: 600px;
+    width: 600px;
+}
+
+.left{
+    padding: 2rem;
+}
+
+.right{
+    padding: 2rem;
+}

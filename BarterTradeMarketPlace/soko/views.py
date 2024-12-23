@@ -64,6 +64,9 @@ def list_item(request):
         form = ItemForm()
     return render(request, 'soko/list_items.html', {'form': form})
 
+def output_view(request):
+    items = Item.objects.all()
+    return render(request, 'soko/output.html', {'items' : items})
 
 def appraise_item(request, item_id):
     item = get_object_or_404(Item, id=item_id)

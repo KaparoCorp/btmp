@@ -9,18 +9,28 @@ class Profile(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
+    description = models.CharField(max_length=100, default=" ")
+
+class Tags(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=100, default=" ")
 
 class Item(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
-    description = models.TextField()
     photo = models.ImageField(upload_to='item_photos/')
     estimated_value = models.DecimalField(max_digits=10, decimal_places=2)
-    created_at = models.DateTimeField(auto_now_add=True)
+    suggestions = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    status = models.CharField(max_length=100)
+    description = models.TextField()
+    appraisal_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    #tags = models.ForeignKey(Tags, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
 
     def __str__(self):
-        return self.title
+
+        return self.photo, f"{self.category} - {self.price} Ksh"
 
 class Appraisal(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
