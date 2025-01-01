@@ -1,8 +1,14 @@
-<h2>Submitted Items</h2>
-    <ul>
-        {% for item in items %}
-            <li>{{ item.category }} - {{ item.price }} Ksh - {{ item.suggestions }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'item_list' %}">Back to Form</a>
-</h2>
+{% extends 'soko/base.html' %}
+{% load static %}
+{% block css_link %}
+{% endblock css_link%}
+{% block content %}
+    <h2>Submitted Items</h2>
+        <ul>
+            {% for item in items %}
+                <li>{{ item.category }} - {{ item.price }} Ksh - {{ item.suggestions }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'item_list' %}">Back to Form</a>
+    </h2>
+{% endblock content %}

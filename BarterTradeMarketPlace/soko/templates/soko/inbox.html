@@ -1,15 +1,21 @@
-<h2>Inbox</h2>
-<ul>
-    {% for message in messages %}
-        <li>
-            <strong>From:</strong> {{ message.sender.username }}<br>
-            <strong>Message:</strong> {{ message.content }}<br>
-            <strong>Sent at:</strong> {{ message.created_at }}<br>
-            {% if not message.is_read %}
-                <strong>(New)</strong>
-            {% endif %}
-        </li>
-    {% empty %}
-        <li>No messages.</li>
-    {% endfor %}
-</ul>
+{% extends 'soko/base.html' %}
+{% load static %}
+{% block css_link %}
+{% endblock css_link%}
+{% block content %}
+    <h2>Inbox</h2>
+    <ul>
+        {% for message in messages %}
+            <li>
+                <strong>From:</strong> {{ message.sender.username }}<br>
+                <strong>Message:</strong> {{ message.content }}<br>
+                <strong>Sent at:</strong> {{ message.created_at }}<br>
+                {% if not message.is_read %}
+                    <strong>(New)</strong>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>No messages.</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

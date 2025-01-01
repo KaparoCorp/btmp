@@ -25,4 +25,5 @@ urlpatterns = [
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('activity_log/', views.activity_log, name='activity_log'),
     path('output/', views.output_view, name='output'),
+    path('cart', views.shopping_cart, name='cart'),
 ]

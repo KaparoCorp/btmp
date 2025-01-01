@@ -1,6 +1,12 @@
-<h2>Send Message to {{ recipient.username }}</h2>
-<form method="post">
-    {% csrf_token %}
-    <textarea name="content" rows="4" cols="50" placeholder="Type your message here..."></textarea>
-    <button type="submit">Send</button>
-</form>
+{% extends 'soko/base.html' %}
+{% load static %}
+{% block css_link %}
+{% endblock css_link%}
+{% block content %}
+    <h2>Send Message to {{ recipient.username }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="content" rows="4" cols="50" placeholder="Type your message here..."></textarea>
+        <button type="submit">Send</button>
+    </form>
+{% endblock content %}

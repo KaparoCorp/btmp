@@ -33,3 +33,7 @@ a{
 li:hover a {
     color: black;
 }
+
+#search{
+    background-color: whitesmoke;
+}

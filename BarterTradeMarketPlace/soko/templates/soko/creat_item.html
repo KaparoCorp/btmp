@@ -1,6 +1,13 @@
-<h2>Create Item</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create</button>
-</form>
+{% extends 'soko/base.html' %}
+{% load static %}
+{% block css_link %}
+{% endblock css_link%}
+{% block content %}
+    <h2>Create Item</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+{% endblock content %}
+

@@ -59,7 +59,7 @@ def list_item(request):
             item = form.save(commit=False)
             item.user = request.user
             item.save()
-            return redirect('item_list')
+            return redirect('list_item')
     else:
         form = ItemForm()
     return render(request, 'soko/list_items.html', {'form': form})
@@ -158,6 +158,10 @@ def propose_exchange(request, item_id):
     else:
         form = ExchangeForm()
     return render(request, 'soko/propose_exchange.html', {'form': form, 'item': item})
+
+def shopping_cart(request,item_id):
+    item = Item.objects.get(id=item_id)
+    return render(request, 'soko/cart.html', {'item': item})
 
 def mark_notification_read(request, notification_id):
     notification = Notification.objects.get(id=notification_id, user=request.user)
